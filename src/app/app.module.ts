@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +11,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RoyalComponent } from './components/royal/royal.component';
 import { OrderDetailComponent } from './components/order-detail/order-detail.component';
 import { CertComponent } from './components/cert/cert.component';
+
+import { HttpService } from './public-services/http.service';
+import { OrderService } from './store/order.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +27,14 @@ import { CertComponent } from './components/cert/cert.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    HttpService,
+    OrderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
