@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from './../../public-services/http.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  goods: any[] = [];
+
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
+    this.http.getData('/goods').subscribe(
+      data => {
+        this.goods = data;
+      }
+    );
   }
 
 }

@@ -1,1 +1,96 @@
-<p>index works!</p>
+<div class="container">
+    <!-- Navbar -->
+    <app-nav-bar></app-nav-bar>
+
+    <!-- content -->
+    <div class="row content">
+        <div class="col-2">
+            <ul class="list-group left-bar">
+                <li class="list-group-item text-center disabled">Menu</li>
+                <li class="list-group-item">
+                    <a href="#all">全部</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#latest">最新商品</a>
+                </li>
+                <li class="list-group-item">
+                    <div class="btn-group dropright">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">麥當勞</a>
+                        <div class="dropdown-menu">
+                            <!-- Dropdown menu links -->
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#McDonalds-menu">菜單</a>
+                                </li>
+                                <li>
+                                    <a href="#McDonalds-map">地圖</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="btn-group dropright">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">阜杭豆漿</a>
+                        <div class="dropdown-menu">
+                            <!-- Dropdown menu links -->
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#fu-hang-menu">菜單</a>
+                                </li>
+                                <li>
+                                    <a href="#fu-hang-map">地圖</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="btn-group dropright">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">皇族泰式料理</a>
+                        <div class="dropdown-menu">
+                            <!-- Dropdown menu links -->
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="./royal.html">菜單</a>
+                                </li>
+                                <li>
+                                    <a href="#royal-map">地圖</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="btn-group dropright">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">北科學餐</a>
+                        <div class="dropdown-menu">
+                            <!-- Dropdown menu links -->
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#NTUT-menu">菜單</a>
+                                </li>
+                                <li>
+                                    <a href="#NTUT-map">地圖</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-10">
+            <div *ngFor="let good of goods" class="card d-inline-block" style="width: 16rem;">
+                <img class="card-img-top" [src]="good.src" [alt]="good.altText">
+                <div class="card-body">
+                    <h5 class="card-title">{{good.title}}</h5>
+                    <p class="card-text">{{good.priceText}}</p>
+                    <!-- <a href="#" class="btn btn-warning text-light float-right mb-3">訂購</a> -->
+                    <a [routerLink]="['../royal/' + good.id]" class="btn btn-warning text-light float-right mb-3">訂購</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+
+</div>
